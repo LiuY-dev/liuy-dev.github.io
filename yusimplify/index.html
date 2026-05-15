@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+
+<!--
+To Do List:
+    None so far
+-->
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>YuSimplify</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="style.css">
+        <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
+        <script>
+            MathJax = {
+            loader: {
+                load: ['input/asciimath', 'output/chtml', 'ui/menu']
+            }
+            };
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@4/startup.js" defer></script>
+    </head>
+    <body style="margin: 0px; background-color: whitesmoke;">
+
+        <div class="box" id="div1">
+            <span class="text_default">ASCII Maths Input:</span>
+            <input type="text" class="text_input" id="main_input">
+            <span class="text_default" style="font-size: 1.5rem; margin-top: 40px;">Preview:</span>
+            <span style="font-size: 2.25rem; margin-top: 5px; font-family: CambriaMath" id="preview">N/A</span>
+            <button class="submit_button" id="submit_button">submit</button>
+        </div>
+
+        <template id="result_template">
+            <div class="box" id="div2">
+                <span style="font-size: 3.5rem; font-family: CambriaMath" id="span">
+                </span>
+
+                <a id="anchor" style="margin-top: 50px;">
+                    <button class="return_button">return</button>
+                </a>
+
+                <button class="view_raw_button" id="view_raw_button">
+                    view raw
+                </button>
+            </div>
+        </template>
+
+
+        <div style="background-color: blue; position: fixed; bottom: 50px; height: 2px; width: 100%;"></div>
+        <div class="footer">
+            <a href="info">
+                <button class="bottom-link">
+                    info <img src="assets/images/info.svg" alt="Information" class="bottom-button-icon">
+                </button>
+            </a>
+            <!--<button class="bottom-link">
+                Settings
+            </button> -->
+            <a href="https://github.com/LiuY-dev/YuSimplify.net" style="display: block; height: 40px; width: 40px;" target="_blank">
+                <img src="/assets/images/github-logo.svg" alt="Go to the github repo!" style="object-fit: cover; width: 100%; height: 100%;">
+            </a>
+        </div>
+
+        <template id="loading_screen">     <!--The loading screen -->
+            <div style="background-color: rgb(210,210,210); height: auto; width: auto; display: flex; align-items: center; justify-content: center;">
+                <span style="font-family: Poppins; font-size: 3.5rem;">
+                    Loading...
+                </span>
+            </div>
+        </template>
+
+        <script src="script.js" async defer></script>
+    </body>
+</html>

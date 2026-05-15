@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Information | YuSimplify</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../style.css">
+        <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon-16x16.png">
+        <script>
+            MathJax = {
+            loader: {
+                load: ['input/asciimath', 'output/chtml', 'ui/menu']
+            }
+            };
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@4/startup.js" defer></script>
+    </head>
+    <body style="margin: 0px; background-color: whitesmoke;">
+
+        <div class="info_biggest_div">
+            <div style="height: inherit; width: 300px; background-color: whitesmoke;">
+                <div style="height: 100px; width: 100%; display: flex; justify-content: center; align-items: center; background-color: white;">
+                    <span class="info_title">INFO</span>
+                </div>
+
+                <div style="background-color: blue; width: 300px; position: fixed; height: 2px; top: 100px;"></div>
+
+                <div style="overflow-y: auto; height: calc(100% - 100px); width: 100%; display: flex; flex-direction: column; align-items: left;">
+                    <button class="info-panel-button" id="input_guide_button">Input Guide</button>
+                    <button class="info-panel-button" id="about_button">About</button>
+                    <button class="info-panel-button" id="contact_me_button">Contact Me</button>
+                    <button class="info-panel-button" id="other_projects_button">Other Projects</button>
+                </div>
+            </div>
+
+            <div style="background-color: blue; height: calc(100vh - 40px); width: 2px; position: fixed; bottom: 40px; left: 300px;"></div>
+
+            <div id="info-content-box" class="info-content-box">
+
+                <div id="placeholder-info-content" style="display: flex; align-items: center; justify-content: center; flex-direction: column; height: 100%; width: 100%;">
+                    <h2 style="font-family: Poppins; font-size: 2rem;">
+                        Choose an item on the left to begin
+                    </h2>
+                </div>
+
+            </div>
+        </div>
+
+        <template id="input_guide_content">
+            <div style="height: auto; width: auto;">
+                <h1>Input Guide</h1>
+                <h2 style="font-family: Poppins;">What you can input</h2>
+                <span class="info-content-paras">The input needs to be in AsciiMath format but a lot of the symbols don't work. Full AsciiMath documentation can be found <a href="https://asciimath.org/" target="_blank">here</a>. Only the following AsciiMath symbols work:</span>
+               
+                <p></p>
+                <table>
+                    <tr>
+                        <th>AsciiMath</th>
+                        <th>Example</th>
+                    </tr>
+
+                    <tr>
+                        <td>+</td>
+                        <td>`2+2`</td>
+                    </tr>
+                    <tr>
+                        <td>-</td>
+                        <td>`4-1`</td>
+                    </tr>
+                    <tr>
+                        <td>*</td>
+                        <td>`4*8`</td>
+                    </tr>
+                    <tr>
+                        <td>/</td>
+                        <td>`2/3`</td>
+                    </tr>
+                    <tr>
+                        <td>^</td>
+                        <td>`4^3`</td>
+                    </tr>
+                    <tr>
+                        <td>sqrt()</td>
+                        <td>`sqrt(64)`</td>
+                    </tr>
+                    <tr>
+                        <td>()</td>
+                        <td>`(6 + 3)*2`</td>
+                    </tr>
+                    <tr>
+                        <td>!</td>
+                        <td>`10!`</td>
+                    </tr>
+
+                </table>
+
+                <p></p>
+                <span class="info-content-paras">If you want to take the nth root of `x`, you must do x^(1/n) which would be `x^(1/n)`, which would equal `root(n)(x)`. The maths solver does not handle root(a)(b) format.</span>
+
+                <p></p>
+
+            </div>
+        </template>
+
+        <template id="about_content">
+            <div style="height: auto; width: auto;">
+                <h1>About</h1>
+
+                <h2 style="font-family: Poppins;">What YuSimplify is</h2>
+                <span class="info-content-paras">YuSimplify is a very simple piece of software made by me, <a href="https://github.com/LiuY-dev" target="_blank">Yuan Liu</a>, a solo developer from England. YuSimplify simplifies mathematical expressions, it does not do a lot of complicated stuff like logarithms, trig, etc.</span>
+
+                <h2 style="font-family: Poppins;">How it Works</h2>
+                <span class="info-content-paras">When the input is entered, the program first checks if it is just whitespace or empty. Then, it uses the input to call <a href="https://github.com/aunyks/newton-api" target="_blank">Newton API</a>, a 3rd party, micro, Maths API. For example, if the user enters '(x-3)(2x+7)',</span>
+                
+                <p></p>
+                <span class="info-content-paras">The text gets encoded to url format, so (x-3)(2x+7) becomes: %28x-3%29%282x%2B7%29</span>
+
+                <p></p>
+                <span class="info-content-paras">Then the api gets called with the encoded maths. In our example, a GET request is sent to: <p></p>'https://newton.vercel.app/api/v2/simplify/%28x-3%29%282x%2B7%29'</span>
+
+                <p></p>
+                <span class="info-content-paras">When the program recieves a response, some nodes in the DOM are removed and new stuff are added such as the return button, view raw button, and the maths text element. In our example, "2 x^2 + x - 21" is returned.</span>
+
+                <p></p>
+                <span class="info-content-paras">Then the asciimath that the API returned is converted to Tex which is the fancy maths formatting. This is done by a javascript plugin called Mathjax which handles the conversion, formatting and display. MathJax is called to do it's job and...</span>
+
+                <p></p>
+                <span class="info-content-paras">Voilà! That's how (x-3)(2x+7) gets converted to: </span>
+                <p></p><span style="font-size: 1.5rem;">`2x^2 + x - 21`</span>
+
+                <p></p>
+                <h2 style="font-family: Poppins;">Why I made it</h2>
+
+                <span class="info-content-paras">I wanted to make this micro project for fun and experience. I have had little experience with web developement before this now I feel more experienced. I now know how to make a simple fontend, which can: call API's, have multiple pages, button inputs, and a simple & clean UI that I'm proud of.</span>
+
+                <p></p>
+                <span class="info-content-paras">Plus, it's one of the multitudinous projects I can put in my CV  ;)</span>
+
+                <p></p>
+                <span class="info-content-paras"></span>
+
+            </div>
+        </template>
+
+        <template id="contact_me_content">
+            <div style="height: auto; width: auto;">
+                <h1>Contact Me</h1>
+                <ul>
+                    <li><h2 style="font-family: Poppins;"><img src="../assets/images/mail.svg" alt="Email" class="bottom-button-icon" style="width: 3.5rem; height: 3.5rem; margin-bottom: -1.2rem;"> Email: LiuY1902@outlook.com</h2></li>
+                </ul>
+            </div>
+        </template>
+
+        <template id="other_projects_content">
+            <div style="height: auto; width: auto;">
+                <h1>Other Projects</h1>
+                <a href="https://liuy-dev.github.io" target="_blank"><span class="info-content-paras">My Website with a catalog of projects</span></a>
+            </div>
+        </template>
+
+        <div style="background-color: blue; position: fixed; bottom: 50px; height: 2px; width: 100%;"></div>
+        
+        <div class="footer">
+            <a href="../">
+                <button class="bottom-link">
+                    back to simplifier
+                </button>
+            </a>
+            <!--<button class="bottom-link">
+                Settings
+            </button> -->
+            <a href="https://github.com/LiuY-dev/YuSimplify.net" style="display: block; height: 40px; width: 40px;" target="_blank">
+                <img src="../assets/images/github-logo.svg" alt="Go to the github repo!" style="object-fit: cover; width: 100%; height: 100%;">
+            </a>
+        </div>
+
+        <script src="script.js" async defer></script>
+    </body>
+</html>
