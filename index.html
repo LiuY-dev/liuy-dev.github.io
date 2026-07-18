@@ -1,4 +1,7 @@
-<!DOCTYPE html> <!-- Now just add stuff to the about me page -->
+<!DOCTYPE html> <!--
+To-Do-List:
+    Make more thumbnails
+-->
 <html>
     <head>
         <meta charset="utf-8">
@@ -8,37 +11,62 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="style.css">
+        <link rel="icon" href="main_res/images/LYD_favicon.png">
     </head>
-    <body style="margin: 0px; background-color: rgb(245,245,245);">
-        <div class="top-bar">
-            <a href="">
-                <img src="main_res/images/logo.png" alt="Logo" class="ycd-logo">
-            </a>
-            <div style="display: flex; justify-content: right; align-items: center;">
-                <a href="about-me/" class="about-me-link">
-                    <span class="about-me">
-                        About Me
-                    </span>
-                </a>
-                <a href="https://github.com/LiuY-dev/" target="_blank">
-                    <img src="main_res/images/github_logo.png" alt="Github Link" class="github-logo">
-                </a>
+    <body>
+
+        <header class="thin-border" style="border-bottom-style: inset;">
+            <a href=""><img src="main_res/images/ly-d_logo.png" alt="The logo"></a>
+            <div style="display: flex; align-items: stretch; justify-content: flex-end;">
+                <a href="about-me/"><button class="header_button">About Me</button></a>
             </div>
+        </header>
+
+        <div style="display: flex; flex-wrap: wrap; justify-content: center;">
+
+            <div style="position: relative;">
+                <button class="portfolio_btn thin-border" onclick="launch('/ecf-grapher')">
+                    <img src="main_res/images/thumbnails/ecf_grapher_thumbnail.png" alt="" class="thumbnail_img thin-border">
+                    <div style="padding-inline: 10px;">
+                        <h2>ECF Grapher</h2>
+                        <p>ECF Grapher is a simple web app that takes an ECF (English Chess Federation) rating code and shows a graph of their rating over time.</p>
+                    </div>
+                </button>
+                <a href="https://github.com/LiuY-dev/ECF-Grapher" target="_blank" style="z-index: 10;"><img src="main_res/images/github_logo.png" alt="Github repo" class="github_logo_mini"></a>
+            </div>
+
+            <div style="position: relative;">
+                <button class="portfolio_btn thin-border" onclick="launch('/yusimplify')">
+                    <img src="main_res/images/thumbnails/yusimplify_thumbnail.png" alt="" class="thumbnail_img thin-border">
+                    <div style="padding-inline: 10px;">
+                        <h2>YuSimplify</h2>
+                        <p>YuSimplify is a simple web app that takes math expressions and simplifies them. The app only accepts simple symbols and ASCII input.</p>
+                    </div>
+                </button>
+            </div>
+
+            <div style="position: relative;">
+                <button class="portfolio_btn thin-border" onclick="launch('/pgn-cleaner')">
+                    <img src="main_res/images/thumbnails/pgn_cleaner_thumbnail.png" alt="" class="thumbnail_img thin-border">
+                    <div style="padding-inline: 10px;">
+                        <h2>PGN Cleaner</h2>
+                        <p>PGN cleaner is a simple tool that takes a PGN and gets rid of comments and/or variations.</p>
+                    </div>
+                </button>
+            </div>
+
+            <div style="position: relative;">
+                <button class="portfolio_btn thin-border" onclick="goto('/coming-soon')">
+                    <img src="main_res/images/thumbnails/coming_soon_thumbnail.png" alt="" class="thumbnail_img thin-border">
+                    <div style="padding-inline: 10px;">
+                        <h2>Coming Soon!</h2>
+                        <p>I am working on a project currently.</p>
+                    </div>
+                </button>
+            </div>
+            
         </div>
-        <div class="grid-container">
-            <a href="ecfgrapher" target="_blank" style="position: relative; padding: 0px;">
-                <img src="main_res/images/big_ecf_checkers.png" alt="Click to go to the ECF rating grapher tool" class="button-image">
-                <span class="button-text">
-                    ECF Grapher
-                </span>
-            </a>
-            <a href="coming-soon/" style="position: relative; padding: 0px;">
-                <img src="main_res/images/olive-bar.png" alt="Coming soon!" class="coming-soon-image">
-                <span class="button-text">
-                    Coming Soon!
-                </span>
-            </a>
-        </div>
+
         <script src="main_script.js" async defer></script>
     </body>
 </html>

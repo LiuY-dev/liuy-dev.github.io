@@ -1,0 +1,8 @@
+@font-face {
+    font-family: cabin;
+    src: url(../main_res/Cabin-Variable.ttf);
+}
+
+span {
+    text-align: center;
+}

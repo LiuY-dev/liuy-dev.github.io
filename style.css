@@ -1,94 +1,99 @@
 @font-face {
-    font-family: poppins-regular;
-    src: url(main_res/Poppins/Poppins-Regular.ttf);
-}
-@font-face {
-    font-family: poppins-thick;
-    src: url(main_res/Poppins/Poppins-SemiBold.ttf);
+    font-family: cabin;
+    src: url(main_res/Cabin-Variable.ttf);
 }
 
-.top-bar {
-    width: 100%;
-    height: 10vh;
-    background-color: rgb(230, 230, 230);
+@keyframes item_button {
+  from {box-shadow: none;}
+  to {box-shadow: 0px 3px 12px 1px rgb(150,150,150);}
+}
+
+
+body {
+    margin: 0px;
+    background-color: #fafafa;
+    color: #1e1e24;
+    font-family: cabin;
+}
+
+header {
+    height: 40px;
     display: flex;
+    padding: 10px;
+    align-items: stretch;
     justify-content: space-between;
 }
 
-.grid-container {
-    display: grid;
-    background-color: rgb(245, 245, 245);
-    grid-template-columns: 44vw 44vw;
-    grid-template-rows: repeat(12.6vh);
-    gap: 4vw;
-    padding: 4vw;
+.thin-border {
+    border-color: #d8d8d8;
+    border-width: 1px;
 }
 
-.button-image {
-    display: block;
+.header_button {
+    border-radius: 10px;
+    border-width: 0px;
+    background-color: rgba(0,0,0,0);
+    padding-inline: 12px;
+    padding-block: 0px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    height: 40px;
+}
+
+.header_button:hover {
+    background-color: rgba(230,230,230,1);
+}
+
+button {
+    cursor: pointer;
+    font-family: cabin;
+}
+
+.portfolio_btn {
+    height: 400px;
+    width: 300px;
+    border-radius: 5px;
+    border-style: groove;
+    background-color: #fafafa;
+    margin: 10px;
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: hidden;
     position: relative;
-    width: 44vw;
-    height: 12.6vh;
-    object-fit:cover;
-    border-radius: 1.2vw;
-    border-width: 4px;
-    border-color: black;
-    border-style: solid;
 }
 
-.button-text {
+.portfolio_btn:hover {
+    animation-name: item_button;
+    animation-duration: 0.2s;
+    animation-fill-mode: forwards;
+}
+
+h2 {
+    margin-bottom: 0px;
+}
+
+p {
+    font-size: 1rem;
+}
+
+.thumbnail_img {
+    height: 198px;
+    width: 298px;
+    border-bottom-style: solid;
+}
+
+.github_logo_mini {
     position: absolute;
-    bottom: 1.2vh;
-    left: 2.2vw;
-    color: whitesmoke;
-    font-size: 3rem;
-    font-family: poppins-thick;
-    text-shadow: 0px 0px 8px black;
+    top: 20px;
+    right: 20px;
+    height: 30px;
+    width: 30px;
+    filter: opacity(0.4);
+    opacity: 1;
+    transition: filter 0.2s;
 }
 
-.ycd-logo {
-    width: auto;
-    height: 6vh;
-    margin-top: 2vh;
-    margin-left: 2vh;
-}
-
-.coming-soon-image {
-    display: block;
-    position: relative;
-    width: 44vw;
-    height: 12.6vh;
-    object-fit: fill;
-    border-radius: 1.2vw;
-    border-width: 4px;
-    border-color: black;
-    border-style: solid;
-}
-
-.coming-soon-columns {
-    display: grid;
-    grid-auto-flow: column;
-    width: 100vh;
-    height: 90vh;
-}
-
-.github-logo {
-    height: 8vh;
-    width: 8vh;
-    margin-top: 1vh;
-    margin-right: 1vh;
-}
-
-.about-me {
-    font-family: poppins-thick;
-    font-size: 1.6rem;
-    margin-right: 4vh;
-    margin-bottom: calc((87.398 - height)/2);
-}
-
-.about-me-link {
-    color: black;
-}
-.about-me-link:hover {
-    color: rgb(65,45,50);
+.github_logo_mini:hover {
+    filter: opacity(1);
 }
