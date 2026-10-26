@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<!--
+    To do list:
+    All good I think
+-->
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>ECF Grapher</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="assets/modules/popups.css">
+        <link rel="icon" href="assets/icons/ecf-grapher.ico">
+    </head>
+    <body>
+        <div id="choose_settings_page">
+            <div style="font-size: 2.5rem; font-weight: 600; text-align: center; margin-block: 30px;">
+                Choose your settings
+            </div>
+            <div style="display: flex; align-items:stretch; justify-content: center; flex-direction: column; height: auto; width: 80%; max-width: 800px; margin-inline: auto;">
+                <div>
+                    <span class="input_prompt">
+                        ECF Rating Code
+                    </span>
+                    <input type="text" class="textinput" id="rating_code_input">
+                </div>
+
+                <div style="display: flex; margin-top: 50px; justify-content: space-between;">
+                    <div style="width: 45%; display: flex; flex-direction: column;">
+                        <span class="input_prompt">
+                            Time Controls
+                        </span>
+                        
+                        <div style="display: flex; flex-direction: column; justify-content: space-between; height: 150px; margin-top: 10px;">
+                            <div class="check_pair_container">
+                                <span class="input_prompt">
+                                    Standard
+                                </span>
+                                <input type="checkbox" class="check" id="S_input">
+                            </div>
+                            <div class="check_pair_container">
+                                <span class="input_prompt">
+                                    Rapid
+                                </span>
+                                <input type="checkbox" class="check" id="R_input">
+                            </div>
+                            <div class="check_pair_container">
+                                <span class="input_prompt">
+                                    Blitz
+                                </span>
+                                <input type="checkbox" class="check" id="B_input">
+                            </div>
+                        </div>
+                    </div>
+                    <div style="width: 45%;">
+                        <span class="input_prompt">
+                            Timescale (months)
+                        </span>
+                        <input type="number" class="textinput" min="1" id="timescale_input">
+                    </div>
+                </div>
+                <div>
+                    <button id="go_button">
+                        Go
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <template id="loading_screen">
+            <div style="height: 100vh; width: 100vw; text-align: center; display: flex; flex-direction: column; justify-content: center;">
+                <span style="font-size: 3rem;">Getting your ratings...</span>
+            </div>
+        </template>
+
+        <div style="font-size: 1rem; position: fixed; bottom: 0px; left: 0.3rem;">
+            This software is not licensed by or affiliated with the ECF.
+        </div>
+        
+        
+        <script src="script.js" async defer type="module"></script>
+    </body>
+</html>
