@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>PGN cleaner</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div style="width: 600px; display: flex; flex-direction: column; align-items: stretch; margin-inline: auto;" id="main">
+            <div style="border-style: outset; border-radius: 0px; border-width: 2px; border-color: #1e1e24; height: 600px; padding: 2px; overflow-y: auto;" id="init_content">
+                <span id="textin" role="textbox" style="border: none; outline: none; width: 100%; height: 100%; display: block;" contenteditable="plaintext-only"></span>
+            </div>
+            <button id="clean_button" onclick='clean_and_show(document.getElementById("textin").innerText)' style="height: 80px;">CLEAN</button>
+            <template id="show_result">
+                <div style="border-style: outset; border-radius: 0px; border-width: 2px; border-color: #1e1e24; height: 600px; padding: 2px; overflow-y: auto;">
+                    <span id="textout" role="textbox" style="border: none; outline: none; width: 100%; height: 100%; display: block;" contenteditable="false"></span>
+                </div>
+                <button id="return" style="height: 80px;" onclick="refresh()">RETURN</button>
+            </template>
+        </div>        
+        <script src="script.js" async defer></script>
+    </body>
+</html>
