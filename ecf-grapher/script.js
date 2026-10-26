@@ -1,4 +1,4 @@
-import { popup } from "/assets/modules/popups.js"
+import { popup } from "./assets/modules/popups.js"
 
 document.getElementById("go_button").addEventListener("click",collect_inputs)
 
