@@ -71,7 +71,10 @@ function format_data(data) {
             ([dateA], [dateB]) => dateA.localeCompare(dateB)
         )) {
             if (rating != 0) {
-                formatted.datasets[i].data.push({x:convert_date(date),y:rating});
+                const adjustedRating = date.slice(0, 7) <= "2020-07"
+                    ? rating * 7.5 + 700
+                    : rating
+                formatted.datasets[i].data.push({x:convert_date(date),y:adjustedRating});
             }
         }
     }
@@ -119,8 +122,9 @@ function add_graph(data) {
                     text: "Month",
                     font: {
                         size: 20
-                    }
-                }
+                    },
+                    color: "#353A40"
+                },
             },
             y: {
                 title: {
@@ -128,7 +132,8 @@ function add_graph(data) {
                     text: "Rating",
                     font: {
                         size: 20
-                    }
+                    },
+                    color: "#353A40"
                 }
             }
         },
@@ -142,17 +147,18 @@ function add_graph(data) {
                 padding: 0,
                 font: {
                     size: 20
-                }
+                },
+                color: "#353A40"
             }
         },
         elements: {
             point: {
-                borderWidth: 5
+                borderWidth: 3
             },
         },
         animation: {
             duration: 250
-        }
+        },
     }
 
 

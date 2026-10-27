@@ -1,6 +1,18 @@
 import { popup } from "./assets/modules/popups.js"
 
+document.getElementById("info_button").addEventListener("click", open_info)
 document.getElementById("go_button").addEventListener("click",collect_inputs)
+document.addEventListener("click", (event) => {
+    if (event.target.closest("#close_info_book")) {
+        close_info()
+    } else if (event.target.closest("#btn_1")) {
+        how_to_use_it()
+    } else if (event.target.closest("#btn_2")) {
+        how_it_works()
+    } else if (event.target.closest("#btn_3")) {
+        contact()
+    }
+})
 
 async function collect_inputs() {
     var rating_code = document.getElementById("rating_code_input").value;
@@ -156,4 +168,29 @@ function convert_and_open(name, data) {
     graphUrl.searchParams.set("data", JSON.stringify(data))
 
     window.open(graphUrl.href,"_self")
+}
+
+function open_info() {
+    let ib = document.getElementById("info_book");
+    let clon = ib.content.cloneNode(true);
+    document.body.appendChild(clon);
+}
+
+function close_info() {
+    let clon = document.getElementById("info_book_clon");
+    if (clon) {
+        clon.remove();
+    }
+}
+
+function how_to_use_it() {
+    document.getElementById("current_content").innerHTML = document.getElementById("how_to_use_it").innerHTML;
+}
+
+function how_it_works() {
+    document.getElementById("current_content").innerHTML = document.getElementById("how_it_works").innerHTML;
+}
+
+function contact() {
+    document.getElementById("current_content").innerHTML = document.getElementById("contact").innerHTML;
 }
